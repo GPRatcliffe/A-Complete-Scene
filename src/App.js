@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from "react-three-fiber"
+import Fox from "./components/fox"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    return (
+        <>
+            <div id="canvasContainer">
+                <Canvas camera={{ position: [-6, 4, -8] }}>
+                    <Fox />
+                    <ambientLight color={0xFFFFFF} intensity={0.3} />
+                    <spotLight 
+                        color="#FFF" 
+                        position={[10, 20, 10]}
+                        intensity={1}
+                    /> 
+                </Canvas>
+            </div>
+        </>
+    )
 }
 
-export default App;
+export default App
